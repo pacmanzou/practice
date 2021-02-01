@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+table {
+  border: solid 1px #dcdddf;
+  text-align: center;
+}
+td {
+  padding: 8px;
+  width: 100px;
+  height: 35px;
+}
+th {
+  padding: 8px;
+  height: 40px;
+}
+img {
+    width: 180px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>test03</title>
+  </head>
+  <style>
+    label {
+      display: block;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function () {
+      var RTextElt = document.getElementById("RText");
+
+      var GTextElt = document.getElementById("GText");
+      var BTextElt = document.getElementById("BText");
+      var buttonElt = document.getElementById("button");
+      var endElt = document.getElementById("end");
+
+      buttonElt.onclick = function () {
+        //if (RTextElt.value && GTextElt.value && BTextElt.value) {
+        //var flag =
+        //  Number(RTextElt.value) * 0.299 +
+        //  Number(GTextElt.value) * 0.587 +
+        //  Number(BTextElt.value) * 0.114;
+        //endElt.style.background = "red";
+        document.getElementById("end").value = "lsfj";
+        //endElt.value = "flag";
+        //}
+      };
+    };
+  </script>
+  <body>
+    <form>
+      <label>R: <input type="text" id="RText" /></label>
+      <label>G: <input type="text" id="GText" /></label>
+      <label>B: <input type="text" id="BText" /></label>
+      <input type="button" id="button" value="转换" />
+      <input type="text" id="end" />
+      <br />
+      <input type="reset" value="重置" />
+    </form>
+  </body>
+</html>

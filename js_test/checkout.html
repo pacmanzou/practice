@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>checkout</title>
+  </head>
+  <style>
+    label {
+      display: block;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function () {
+      // 获取myCheckkbox普通复选框的element对象
+      var myCheckboxElt = document.getElementsByName("myCheckbox");
+
+      // 获取myAllCheckkbox复选框的element对象
+      var myAllCheckboxElt = document.getElementById("myAllCheckbox");
+
+      myAllCheckboxElt.onclick = function () {
+        // 优化后的方法
+        for (var i = 0; i < myCheckboxElt.length; i++) {
+          myCheckboxElt[i].checked = myAllCheckboxElt.checked;
+        }
+
+        /* 此方法为一般的思路
+        if (myAllCheckboxElt.checked) {
+            for (var i = 0; i < myCheckboxElt.length; i++) {
+
+          myCheckboxElt[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < myCheckboxElt.length; i++) {
+
+          myCheckboxElt[i].checked = false;
+            }
+        }
+        */
+      };
+      for (var i = 0; i < myCheckboxElt.length; i++) {
+        myCheckboxElt[i].onclick = function () {
+          var count = 0;
+          for (var j = 0; j < myCheckboxElt.length; j++) {
+            if (myCheckboxElt[j].checked) {
+              count++;
+            }
+          }
+
+          // 优化后的方法
+          myAllCheckboxElt.checked = count == myCheckboxElt.length;
+
+          /* 一般方法
+            if (count == myCheckboxElt.length) {
+              myAllCheckboxElt.checked = true;
+            } else {
+              myAllCheckboxElt.checked = false;
+            }
+            */
+        };
+      }
+    };
+  </script>
+  <body>
+    <label>java: <input type="checkbox" name="myCheckbox" /></label>
+    <label>go: <input type="checkbox" name="myCheckbox" /></label>
+    <label>python: <input type="checkbox" name="myCheckbox" /></label>
+    <label>javascript: <input type="checkbox" name="myCheckbox" /></label>
+    <label>all: <input type="checkbox" id="myAllCheckbox" /></label>
+  </body>
+</html>
