@@ -72,6 +72,7 @@ def operation_query():
         print()
 
 
+
 def operation_list():
     global cards
     print('list如下:')

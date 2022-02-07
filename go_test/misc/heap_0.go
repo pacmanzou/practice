@@ -10,20 +10,25 @@ type IntHeap []int
 func (s IntHeap) Len() int {
 	return len(s)
 }
+
 func (s IntHeap) Less(i, j int) bool {
 	return s[i] > s[j]
 }
+
 func (s IntHeap) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
+
 func (s *IntHeap) Pop() interface{} {
 	x := (*s)[len(*s)-1]
 	*s = (*s)[:len(*s)-1]
 	return x
 }
+
 func (s *IntHeap) Push(x interface{}) {
 	*s = append(*s, x.(int))
 }
+
 func main() {
 	nums := []int{3, 2, 1, 5, 6, 4, 8}
 	n := &IntHeap{}

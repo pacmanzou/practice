@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-
 	var wg sync.WaitGroup
 	var catCounter uint64
 	var dogCounter uint64

@@ -1,32 +1,34 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>js</title>
-	<script>
-		function change(){
-			var R=document.getElementById("R").value;
-			var G=document.getElementById("G").value;
-			var B=document.getElementById("B").value;
-			var Gray=Math.round(R*0.299+G*0.587+B*0.114);
-			document.getElementById("Gray").value=Gray;
-			
-		};
-		function deleteNum(){
-			document.getElementById("Gray").value=null;
-			document.getElementById("R").value=null;
-			document.getElementById("G").value=null;
-			document.getElementById("B").value=null;
-		}
-	</script>
+    <meta charset="utf-8">
+    <title>js</title>
+    <script>
+        function change() {
+            var R = document.getElementById("R").value;
+            var G = document.getElementById("G").value;
+            var B = document.getElementById("B").value;
+            var Gray = Math.round(R * 0.299 + G * 0.587 + B * 0.114);
+            document.getElementById("Gray").value = Gray;
+
+        };
+
+        function deleteNum() {
+            document.getElementById("Gray").value = null;
+            document.getElementById("R").value = null;
+            document.getElementById("G").value = null;
+            document.getElementById("B").value = null;
+        }
+    </script>
 </head>
 
 <body>
-	输入R：<input type="text" id="R"><br>
-	输入G：<input type="text" id="G"><br>
-	输入B：<input type="text" id="B"><br>
-<button onClick="change()">执行转换<tton>
-	<button onClick="deleteNum()">清除数据<tton><br>
-	Gary：<input type="text" id="Gray">
+    输入R：<input type="text" id="R"><br>
+    输入G：<input type="text" id="G"><br>
+    输入B：<input type="text" id="B"><br>
+    <button onClick="change()">执行转换<tton>
+            <button onClick="deleteNum()">清除数据<tton><br>
+                    Gary：<input type="text" id="Gray">
 </body>
 <ml>

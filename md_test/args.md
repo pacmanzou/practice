@@ -1,5 +1,8 @@
 # args 可变非关键参数
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+hello world
 Sed is a stream editors. A stream editor is used to perform basic text transforma‐
 tions on an input stream (a file or input from a pipeline). While in some ways sim‐
 ilar to an editor which permits scripted edits (such as ed), sed works by making

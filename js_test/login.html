@@ -1,143 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>loginTest</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <script type="text/javascript">
-      //
-      // * loginTest name password email
-      //
-
-      window.onload = function () {
         //
-        // ** blur myName时正则验证如果错误则弹出
+        // * loginTest name password email
         //
 
-        // 获取myName文本框的element对象
-        var myNameElt = document.getElementById("myName");
+        window.onload = function() {
+            //
+            // ** blur myName时正则验证如果错误则弹出
+            //
 
-        // 获取myNameVerify文本框的element对象
-        var myNameVerifyElt = document.getElementById("myNameVerify");
+            // 获取myName文本框的element对象
+            var myNameElt = document.getElementById("myName");
 
-        // 给myNameElt绑定blur事件
-        myNameElt.onblur = function () {
-          var nameRegExp = /^[A-Za-z0-9]+$/;
-          // 正则比较
-          if (!nameRegExp.test(myNameElt.value.trim())) {
-            myNameVerifyElt.innerText = "name格式error! 只能为英文和数字.";
-          } else nameFlag = true;
+            // 获取myNameVerify文本框的element对象
+            var myNameVerifyElt = document.getElementById("myNameVerify");
+
+            // 给myNameElt绑定blur事件
+            myNameElt.onblur = function() {
+                var nameRegExp = /^[A-Za-z0-9]+$/;
+                // 正则比较
+                if (!nameRegExp.test(myNameElt.value.trim())) {
+                    myNameVerifyElt.innerText = "name格式error! 只能为英文和数字.";
+                } else nameFlag = true;
+            };
+
+            // 给myNameElt绑定focus事件
+            myNameElt.onfocus = function() {
+                // focus myName文本框时,清除verify错误信息和文本框内容
+                if (myNameVerifyElt.innerText) {
+                    myNameElt.value = "";
+                    myNameVerifyElt.innerText = "";
+                }
+            };
+
+            //
+            // ** blur password时正则验证如果错误则弹出
+            //
+
+            // 获取myPwd密码框的element对象
+            var myPwdElt = document.getElementById("myPwd");
+
+            // 获取myPwdVerify文本框的element对象
+            var myPwdVerifyElt = document.getElementById("myPwdVerify");
+
+            // 给myPwdElt绑定blur事件
+            myPwdElt.onblur = function() {
+                var pwdRegExp = /^[a-zA-Z]\w{5,17}$/;
+                // 正则比较
+                if (!pwdRegExp.test(myPwdElt.value.trim())) {
+                    myPwdVerifyElt.innerText =
+                        "password格式error! 需字母开头，长度6-18,只能包含数字，字母和下划线.";
+                } else pwdFlag = true;
+            };
+
+            // 给myPwdElt绑定focus事件
+            myPwdElt.onfocus = function() {
+                // focus password时错误消失
+                myPwdVerifyElt.innerText = "";
+            };
+
+            //
+            // ** blur email时正则验证如果错误则弹出
+            //
+
+            // 获取myEmail文本框的element对象
+            var myEmailElt = document.getElementById("myEmail");
+
+            // 获取myEmailVerify文本框的element对象
+            var myEmailVerifyElt = document.getElementById("myEmailVerify");
+
+            //给myEmailElt绑定blur事件
+            myEmailElt.onblur = function() {
+                var emailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                // 正则比较
+                if (!emailRegExp.test(myEmailElt.value.trim())) {
+                    // Change the color to red
+                    myEmailVerifyElt.style = "color: red";
+                    myEmailVerifyElt.innerText = "mail格式error!";
+                }
+
+                // if name and password格式正确,颜色改为绿色,print通知
+                else if (nameFlag && pwdFlag) {
+                    myEmailVerifyElt.style = "color: green";
+                    myEmailVerifyElt.innerText = "name,password,email格式正确";
+                }
+            };
+
+            // 给myEmailElt绑定focus事件
+            myEmailElt.onfocus = function() {
+                // focus email时错误消失
+                myEmailVerifyElt.innerText = "";
+            };
+
+            // 获取myResetButton按钮框的element对象
+            var myResetButtonElt = document.getElementById("myResetButton");
+
+            //
+            // ** click重置时清除print的通知
+            //
+
+            // 给myResetButtonElt绑定click事件
+            myResetButtonElt.onclick = function() {
+                // 清空
+                myNameVerifyElt.innerText = "";
+                myPwdVerifyElt.innerText = "";
+                myEmailVerifyElt.innerText = "";
+            };
         };
-
-        // 给myNameElt绑定focus事件
-        myNameElt.onfocus = function () {
-          // focus myName文本框时,清除verify错误信息和文本框内容
-          if (myNameVerifyElt.innerText) {
-            myNameElt.value = "";
-            myNameVerifyElt.innerText = "";
-          }
-        };
-
-        //
-        // ** blur password时正则验证如果错误则弹出
-        //
-
-        // 获取myPwd密码框的element对象
-        var myPwdElt = document.getElementById("myPwd");
-
-        // 获取myPwdVerify文本框的element对象
-        var myPwdVerifyElt = document.getElementById("myPwdVerify");
-
-        // 给myPwdElt绑定blur事件
-        myPwdElt.onblur = function () {
-          var pwdRegExp = /^[a-zA-Z]\w{5,17}$/;
-          // 正则比较
-          if (!pwdRegExp.test(myPwdElt.value.trim())) {
-            myPwdVerifyElt.innerText =
-              "password格式error! 需字母开头，长度6-18,只能包含数字，字母和下划线.";
-          } else pwdFlag = true;
-        };
-
-        // 给myPwdElt绑定focus事件
-        myPwdElt.onfocus = function () {
-          // focus password时错误消失
-          myPwdVerifyElt.innerText = "";
-        };
-
-        //
-        // ** blur email时正则验证如果错误则弹出
-        //
-
-        // 获取myEmail文本框的element对象
-        var myEmailElt = document.getElementById("myEmail");
-
-        // 获取myEmailVerify文本框的element对象
-        var myEmailVerifyElt = document.getElementById("myEmailVerify");
-
-        //给myEmailElt绑定blur事件
-        myEmailElt.onblur = function () {
-          var emailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-          // 正则比较
-          if (!emailRegExp.test(myEmailElt.value.trim())) {
-            // Change the color to red
-            myEmailVerifyElt.style = "color: red";
-            myEmailVerifyElt.innerText = "mail格式error!";
-          }
-
-          // if name and password格式正确,颜色改为绿色,print通知
-          else if (nameFlag && pwdFlag) {
-            myEmailVerifyElt.style = "color: green";
-            myEmailVerifyElt.innerText = "name,password,email格式正确";
-          }
-        };
-
-        // 给myEmailElt绑定focus事件
-        myEmailElt.onfocus = function () {
-          // focus email时错误消失
-          myEmailVerifyElt.innerText = "";
-        };
-
-        // 获取myResetButton按钮框的element对象
-        var myResetButtonElt = document.getElementById("myResetButton");
-
-        //
-        // ** click重置时清除print的通知
-        //
-
-        // 给myResetButtonElt绑定click事件
-        myResetButtonElt.onclick = function () {
-          // 清空
-          myNameVerifyElt.innerText = "";
-          myPwdVerifyElt.innerText = "";
-          myEmailVerifyElt.innerText = "";
-        };
-      };
     </script>
 
     <form action="">
-      <!-- name -->
-      <label for="myName">姓名: </label>
-      <input type="text" id="myName" />
-      <span id="myNameVerify" style="color: red;"></span>
-      <br />
+        <!-- name -->
+        <label for="myName">姓名: </label>
+        <input type="text" id="myName" />
+        <span id="myNameVerify" style="color: red;"></span>
+        <br />
 
-      <!-- password -->
-      <label for="myPwd">密码: </label>
-      <input type="password" id="myPwd" />
-      <span id="myPwdVerify" style="color: red;"></span>
-      <br />
+        <!-- password -->
+        <label for="myPwd">密码: </label>
+        <input type="password" id="myPwd" />
+        <span id="myPwdVerify" style="color: red;"></span>
+        <br />
 
-      <!-- email -->
-      <label>邮箱: <input type="text" id="myEmail" /></label>
-      <span id="myEmailVerify" style="color: red;"></span>
-      <br />
+        <!-- email -->
+        <label>邮箱: <input type="text" id="myEmail" /></label>
+        <span id="myEmailVerify" style="color: red;"></span>
+        <br />
 
-      <!-- verify -->
-      <input type="button" id="myVerifyButton" value="验证" />
+        <!-- verify -->
+        <input type="button" id="myVerifyButton" value="验证" />
 
-      <!-- reset -->
-      <input type="reset" id="myResetButton" value="重置" />
+        <!-- reset -->
+        <input type="reset" id="myResetButton" value="重置" />
     </form>
-  </body>
+</body>
+
 </html>

@@ -22,6 +22,11 @@
 #     sleep 1
 # done
 # echo ""
+
+for((i=0; i < 10; i++)); do
+    echo "$i"
+done
+
 # read
 # echo -n -e "username: "
 # read -r name
@@ -132,7 +137,7 @@
 # sort -t " " -nrk 2 demo2.txt
 # sort demo2.txt
 
-sed -n '/\[file-build-and-run\]/,/\[.*\]/p' tasks.ini | head -n -1
+# sed -n '/\[file-build-and-run\]/,/\[.*\]/p' tasks.ini | head -n -1
 
 # awk 脚本
 # /\[file-build-and-run\]/{
@@ -152,4 +157,4 @@ sed -n '/\[file-build-and-run\]/,/\[.*\]/p' tasks.ini | head -n -1
 # <0: 表示读取报错
 
 # sum
-awk '{arr[$0]++}END{for(i in arr){print i,arr[i]}}' repeat.txt
+# awk '{arr[$0]++}END{for(i in arr){print i,arr[i]}}' repeat.txt

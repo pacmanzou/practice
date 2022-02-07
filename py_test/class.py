@@ -35,8 +35,8 @@ class Student(object):
 
     @classmethod
     def test(cls):
-        print("test")
         print(cls.type)
+        print("test")
 
 
 s1 = Student("xiaoming", 18, 1.75)
